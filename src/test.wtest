@@ -1,0 +1,59 @@
+import viajes.*
+import gimnasia.*
+import socios.*
+
+	
+	describe "Tests de viajes"{
+		
+		
+		const buzios = new Playa(idioma = ["ingles"], largoDePlaya = 1000)
+		const miami = new Playa (idioma = ["ingles", "frances", "espaniol"], largoDePlaya = 2000)
+		const africa = new SalidaDeTrekking (idioma = ["frances"], kmsSenderos = 400, cuantosDiasDeSol = 300)
+		
+		const roque = new Socio(tipoDeSocio = tranquilo, edad = 40, maximoActividades = 2, idiomas = ["ingles"])
+		const ana = new Socio(tipoDeSocio = tranquilo ,edad = 35, maximoActividades = 3, idiomas =["frances"])
+		
+		const yoga = new Gimnasia() 
+		
+		 
+			fixture{
+				
+				roque.agregarActividad(buzios)
+				roque.agregarActividad(miami)
+				ana.agregarActividad(buzios)
+				ana.agregarActividad(miami)
+				
+			}
+
+
+		test "Si el largo de playa es 1000, el viaje lleva 2 dias" {
+			assert.equals(2, buzios.cuantosDiasLleva())
+}
+		test "Si en miami hay mas de dos idiomas, es interesante"{
+			assert.that(miami.esInteresante())
+}
+		test "Si roque viajo 2 veces a la playa  es adorador del sol"{
+			assert.that(roque.esAdoradorDelSol())
+}
+		test "Si las longitudes de las playas son de 1000 y 2000 mts, roque hizo actividades esforzadas"{
+			assert.equals([miami] == roque.realizoActividadesEsforzadas())
+		}
+
+		/*test "Si roque hace gimnasia, da error, superó su cantidad maxima"{
+			assert.throwWithMessage(roque.agregarActividad(yoga)
+			)
+		}*/
+		
+		test "si ana hizo los mismos viajes que roque, y tambien gimnasia, ya no es adoradora del sol"{
+			ana.agregarActividad(yoga)
+			assert.notThat(ana.esAdoradorDelSol())
+			assert.equals([miami, yoga] == ana.realizoActividadesEsforzadas())
+		}
+		
+		test "si roque es un socio tranquilo, le gustaria ir a africa"{
+			assert.that(roque.leAtrae(africa))
+		}
+		
+			
+		
+}
