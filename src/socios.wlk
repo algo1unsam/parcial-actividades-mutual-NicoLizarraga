@@ -28,10 +28,10 @@ object tranquilo{
 	method condicion(actividad) = actividad.cuantosDiasLleva() > 4
 }
 
-object coherente{
+object coherente{ //Falta hacer!
 	
 }
 
-object relajado{
+object relajado{ //Falta hacer!
 	
 }
