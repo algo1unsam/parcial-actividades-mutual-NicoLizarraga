@@ -36,18 +36,18 @@ import socios.*
 			assert.that(roque.esAdoradorDelSol())
 }
 		test "Si las longitudes de las playas son de 1000 y 2000 mts, roque hizo actividades esforzadas"{
-			assert.equals([miami] == roque.realizoActividadesEsforzadas())
+			assert.equals([miami] == roque.realizoActividadesEsforzadas()) //equals recibe dos parametros
 		}
 
 		/*test "Si roque hace gimnasia, da error, superó su cantidad maxima"{
-			assert.throwWithMessage(roque.agregarActividad(yoga)
+			assert.throwWithMessage(roque.agregarActividad(yoga) // Mal usado el mensaje
 			)
 		}*/
 		
 		test "si ana hizo los mismos viajes que roque, y tambien gimnasia, ya no es adoradora del sol"{
 			ana.agregarActividad(yoga)
 			assert.notThat(ana.esAdoradorDelSol())
-			assert.equals([miami, yoga] == ana.realizoActividadesEsforzadas())
+			assert.equals([miami, yoga] == ana.realizoActividadesEsforzadas()) //idem
 		}
 		
 		test "si roque es un socio tranquilo, le gustaria ir a africa"{
